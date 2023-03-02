@@ -1,32 +1,28 @@
-const express = require('express')
-const{
-createWorkout,
-getWorkout,
-getWorkouts,
-deleteWorkout,
-updateWorkout,
-getAllBrands,
-createBrands
-} = require('../controllers/workoutController')
+const express = require("express");
+const {
+  createWorkout,
+  getWorkout,
+  getWorkouts,
+  deleteWorkout,
+  updateWorkout,
+  getAllBrands,
+  createBrands,
+} = require("../controllers/workoutController");
 
-const router = express.Router()
+const router = express.Router();
 
+router.get("/", getWorkouts);
 
-router.get('/', getWorkouts)
+router.get("/workoutbrands", getAllBrands);
 
-router.get('/workoutbrands', getAllBrands)
+router.post("/createBrands", createBrands);
 
-router.post('/createBrands', createBrands)
+router.get("/:id", getWorkout);
 
+router.post("/", createWorkout);
 
-router.get('/:id', getWorkout)
+router.delete("/:id", deleteWorkout);
 
+router.patch("/:id", updateWorkout);
 
-    router.post('/', createWorkout)
-        
-
-        router.delete('/:id', deleteWorkout)
-
-            router.patch('/:id',updateWorkout)
-
-module.exports = router
+module.exports = router;
