@@ -25,7 +25,7 @@ const getWorkout = async(req,res) => {
     res.status(200).json(workout)
 }
 
-//get a single workout
+//get a single brand
 const getAllBrands = async(req,res)=>{
     const brands = await Brands.find({}).sort({createdAt: -1})
 

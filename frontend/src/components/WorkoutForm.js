@@ -111,23 +111,6 @@ function WorkoutForm({ workout }) {
 
         <button>Add workout</button>
         {error && <div className="error">{error}</div>}
-
-        <br />
-        <label>Update Title</label>
-        <input
-          type="text"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-          className={emptyFields.includes("title") ? "error" : ""}
-        />
-        <Select
-          isMulti
-          value={getIds}
-          onChange={handleChange}
-          options={workout}
-        />
-
-        <button>Update Title</button>
       </form>
     </>
   );
