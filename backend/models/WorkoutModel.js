@@ -23,9 +23,5 @@ const workoutSchema = new Schema({
     
 }, {timestamps:true})
 
-const Workoutbrands = new Schema({
-    brands: [{ name: Array}]
-    
-}, {timestamps:true})
 
 module.exports = mongoose.model('Workout', workoutSchema )

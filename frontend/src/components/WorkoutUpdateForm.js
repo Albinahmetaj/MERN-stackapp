@@ -1,8 +1,10 @@
 import React,{useState, useEffect} from 'react';
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useParams } from 'react-router-dom';
+import Multiselect from 'multiselect-react-dropdown';
 function WorkoutUpdateForm() {
-    const { dispatch } = useWorkoutsContext();
+   
+  const { dispatch } = useWorkoutsContext();
     const [title, setTitle] = useState('')
     const [reps, setReps] = useState('')
     const [load, setLoad] = useState('')
@@ -13,14 +15,25 @@ function WorkoutUpdateForm() {
         whey:0
     }])
     const params = useParams();
+    const [brands, setBrands] = useState([
+      
+      ]);
 
+    async function getAllBrands(){
+
+      let result = await fetch('http://localhost:4000/api/workouts/workoutbrands',{
+        method:'GET',
+      }).then(res =>{
+
+      });
+      
+    }
     
     async function getWorkoutDetails(){
         let result = await fetch(`http://localhost:4000/api/workouts/${params.id}`,{
             method:'GET'
         });
         const json = await result.json();
-        console.log(json)
         setTitle(json.title)
     }
     
@@ -30,7 +43,13 @@ function WorkoutUpdateForm() {
         }
 
     }
+
     
+    
+    useEffect(()=>{
+      getAllBrands()
+  },[])
+
     useEffect(()=>{
         getWorkoutDetails()
     },[])
@@ -47,7 +66,7 @@ function WorkoutUpdateForm() {
           },
         });
         const json = await response.json();
-        console.log(response);
+        
         if (!response.ok) {
           setError(json.error);
         }
@@ -91,6 +110,26 @@ function WorkoutUpdateForm() {
          
         />
 
+        <label>Whey:</label>
+        <input
+          type="number"
+          onChange={(e) => setProteinBrands(e.target.value)}
+          value={proteinBrands.whey}
+        />
+        {brands &&
+          brands.map((data, i)   => (
+            
+            <div>
+              <div>{console.log(data.brands)}</div>
+              <Multiselect
+              key={i}
+              
+              />  
+              <p>{JSON.stringify(data.brands.name)}</p>
+            </div>
+          ))}
+        
+        
         <button>Add workout</button>
         
       </form>
