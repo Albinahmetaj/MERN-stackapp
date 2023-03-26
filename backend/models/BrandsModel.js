@@ -1,9 +1,13 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema
-const Workoutbrands = new Schema({
-    brands: [{ name: Array}]
-    
-}, {timestamps:true})
+const Schema = mongoose.Schema;
+const Workoutbrands = new Schema(
+  {
+    brands: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('Brands', Workoutbrands )
+module.exports = mongoose.model("Brands", Workoutbrands);
