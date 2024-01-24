@@ -143,7 +143,7 @@ function WorkoutUpdateForm() {
             onChange={(e) => setLoad(e.target.value)}
             value={load}
           />
-
+          <p>test</p>
           <label>Reps (in kg):</label>
           <input
             type="number"
