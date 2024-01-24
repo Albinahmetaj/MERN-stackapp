@@ -24,6 +24,7 @@ function WorkoutDetails({ workout }) {
     }
   }
   //
+  //egtreg
   return (
     <div className="workout-details">
       <h4>{workout.title}</h4>
