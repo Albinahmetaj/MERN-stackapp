@@ -23,6 +23,7 @@ function WorkoutDetails({ workout }) {
       dispatch({ type: "DELETE_WORKOUT", payload: json });
     }
   }
+  //tes
   return (
     <div className="workout-details">
       <h4>{workout.title}</h4>
