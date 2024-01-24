@@ -144,6 +144,7 @@ function WorkoutUpdateForm() {
             value={load}
           />
           <p>testar</p>
+          <p>testar</p>
           <label>Reps (in kg):</label>
           <input
             type="number"
