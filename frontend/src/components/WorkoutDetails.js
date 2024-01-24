@@ -4,7 +4,7 @@ import { Switch, Grid, Select, Button } from "@mui/material";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import DeleteIcon from "@mui/icons-material/Delete";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function WorkoutDetails({ workout }) {
   const { dispatch } = useWorkoutsContext();
@@ -28,25 +28,39 @@ function WorkoutDetails({ workout }) {
     <div className="workout-details">
       <h4>{workout.title}</h4>
       <p>
-        <stong>Id: </stong>
+        <strong>Id: </strong>
         {workout._id}
       </p>
       <p>
-        <stong>Load (kg): </stong>
+        <strong>Load (kg): </strong>
         {workout.load}
       </p>
       <p>
-        <stong>Reps: </stong>
+        <strong>Reps: </strong>
         {workout.reps}
       </p>
       <p>
         {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
       </p>
       <p>State: {`${workout.isActive}`}</p>
-      <span style={{ cursor: "pointer", display:'flex', justifyContent:'flex-end', position:'absolute', top:'0px', right:'0px', margin:'5px' }} onClick={handleClick}>
+      <span
+        style={{
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "flex-end",
+          position: "absolute",
+          top: "0px",
+          right: "0px",
+          margin: "5px",
+        }}
+        onClick={handleClick}
+      >
         <DeleteIcon />
       </span>
-      <Link to={"/update/" + workout._id} style={{ display:'flex', justifyContent:'flex-end' }}>
+      <Link
+        to={"/update/" + workout._id}
+        style={{ display: "flex", justifyContent: "flex-end" }}
+      >
         Update
       </Link>
     </div>
